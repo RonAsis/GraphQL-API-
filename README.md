@@ -1,1 +1,1 @@
-# GraphQL-API-
+# GraphQL-API
