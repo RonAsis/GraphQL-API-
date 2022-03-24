@@ -1,0 +1,52 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.muse'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    // mongo
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+	// spring web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// spring test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// swagger support
+	implementation "io.springfox:springfox-swagger-ui:2.9.2"
+	implementation "io.springfox:springfox-swagger2:2.9.2"
+
+	// common lib
+	implementation "org.apache.commons:commons-lang3:3.8.1"
+	implementation "org.apache.commons:commons-collections4:4.4"
+
+	//graphql
+	implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
+	implementation 'com.graphql-java:graphql-java-tools:5.2.4'
+	implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
+	compileOnly 'io.github.graphql-java:graphql-java-annotations:7.2.1'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
