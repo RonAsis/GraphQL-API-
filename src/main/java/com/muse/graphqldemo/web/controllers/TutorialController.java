@@ -3,7 +3,7 @@ package com.muse.graphqldemo.web.controllers;
 import com.muse.graphqldemo.domain.model.Tutorial;
 import com.muse.graphqldemo.services.TutorialService;
 import com.muse.graphqldemo.web.dtos.ErrorDto;
-import com.muse.graphqldemo.web.dtos.TutorialFullDto;
+import com.muse.graphqldemo.web.dtos.TutorialDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -36,7 +36,7 @@ public class TutorialController {
             @ApiResponse(code = 400, message = "Get all tutorials failed", response = ErrorDto.class),
     })
     @GetMapping("/all")
-    public List<Tutorial> findAll(){
+    public List<TutorialDto> findAll(){
         return tutorialService.findAll();
     }
 
@@ -46,7 +46,7 @@ public class TutorialController {
             @ApiResponse(code = 400, message = "Get all tutorials full failed", response = ErrorDto.class),
     })
     @GetMapping("/all-full")
-    public List<TutorialFullDto> findAllFull(){
+    public List<TutorialDto> findAllFull(){
         return tutorialService.findAllFull();
     }
 
@@ -66,13 +66,8 @@ public class TutorialController {
             @ApiResponse(code = 400, message = "Create Tutorial failed", response = ErrorDto.class),
     })
     @PostMapping
-    public Tutorial create(@RequestParam String title, @RequestParam String description, @RequestParam String authorId){
-        Tutorial book = new Tutorial();
-        book.setAuthorId(authorId);
-        book.setTitle(title);
-        book.setDescription(description);
-
-        return tutorialService.save(book);
+    public TutorialDto create(@RequestParam String title, @RequestParam String description, @RequestParam String authorId){
+        return tutorialService.create(title, description, authorId);
     }
 
     @ApiOperation(value = "Delete Tutorial")
@@ -91,7 +86,7 @@ public class TutorialController {
             @ApiResponse(code = 400, message = "Update Tutorial failed", response = ErrorDto.class),
     })
     @PutMapping("/{id}")
-    public Tutorial update(@PathVariable String id, @RequestParam String title, @RequestParam String description) {
+    public TutorialDto update(@PathVariable String id, @RequestParam String title, @RequestParam String description) {
         return tutorialService.update(id, title, description);
     }
 }

@@ -2,18 +2,38 @@ package com.muse.graphqldemo.services.utils;
 
 import com.muse.graphqldemo.domain.model.Author;
 import com.muse.graphqldemo.domain.model.Tutorial;
-import com.muse.graphqldemo.web.dtos.TutorialFullDto;
+import com.muse.graphqldemo.web.dtos.TutorialDto;
+import org.springframework.util.CollectionUtils;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TutorialConverter {
 
-    public static TutorialFullDto convert(Tutorial tutorial, Author author){
-        TutorialFullDto tutorialFullDto = new TutorialFullDto();
+    public static TutorialDto convert(Tutorial tutorial, Author author){
+        TutorialDto tutorialDto = new TutorialDto();
 
-        tutorialFullDto.setId(tutorial.getId());
-        tutorialFullDto.setTitle(tutorial.getTitle());
-        tutorialFullDto.setDescription(tutorial.getDescription());
-        tutorialFullDto.setAuthor(author);
+        tutorialDto.setId(tutorial.getId());
+        tutorialDto.setTitle(tutorial.getTitle());
+        tutorialDto.setDescription(tutorial.getDescription());
+        tutorialDto.setAuthorId(tutorial.getAuthorId());
+        tutorialDto.setAuthor(author);
 
-        return tutorialFullDto;
+        return tutorialDto;
+    }
+
+    public static TutorialDto convert(Tutorial tutorial){
+        return convert(tutorial, null);
+    }
+
+    public static List<TutorialDto> convert(List<Tutorial> tutorials){
+        if(CollectionUtils.isEmpty(tutorials)){
+            return new LinkedList<>();
+        }
+
+        return tutorials.stream()
+                .map(TutorialConverter::convert)
+                .collect(Collectors.toList());
     }
 }

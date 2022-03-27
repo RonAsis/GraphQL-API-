@@ -36,4 +36,13 @@ public class AuthorService {
         return StreamSupport.stream(allById.spliterator(), false)
                 .collect(Collectors.toMap(Author::getId, e -> e));
     }
+
+    public Author create(String name, Integer age) {
+        Author author = new Author();
+
+        author.setName(name);
+        author.setAge(age);
+
+        return save(author);
+    }
 }

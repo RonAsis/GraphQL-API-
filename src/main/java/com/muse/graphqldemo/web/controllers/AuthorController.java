@@ -55,9 +55,6 @@ public class AuthorController {
     })
     @PostMapping()
     public Author create(@RequestParam String name, @RequestParam Integer age){
-        Author author = new Author();
-        author.setName(name);
-        author.setAge(age);
-        return authorService.save(author);
+        return authorService.create(name, age);
     }
 }

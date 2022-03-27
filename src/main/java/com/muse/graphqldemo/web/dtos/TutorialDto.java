@@ -8,10 +8,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TutorialFullDto {
+public class TutorialDto {
 
     private String id;
     private String title;
     private String description;
     private Author author;
+    private String authorId;
 }
