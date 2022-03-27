@@ -16,5 +16,5 @@ public class Tutorial {
     private String id;
     private String title;
     private String description;
-    private String author_id;
+    private String authorId;
 }
