@@ -1,4 +1,4 @@
-type TutorialDtO {
+type TutorialDto {
 	id: ID!
 	title: String!
 	description: String
@@ -7,12 +7,12 @@ type TutorialDtO {
 }
 
 extend type Query {
-	findAllTutorials: [Tutorial]!
+	findAllTutorials: [TutorialDto]!
 	countTutorials: Long!
 }
 
 extend type Mutation {
-	createTutorial(title: String!, description: String, author: ID!): Tutorial!
-	updateTutorial(id: ID!, title: String, description: String): Tutorial!
+	createTutorial(title: String!, description: String, author: ID!): TutorialDto!
+	updateTutorial(id: ID!, title: String, description: String): TutorialDto!
 	deleteTutorial(id: ID!): Boolean
 }
