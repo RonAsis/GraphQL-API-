@@ -12,7 +12,7 @@ public class AuthorMutation implements GraphQLMutationResolver {
 
     private final AuthorService authorService;
 
-    public Author create(String name, Integer age){
+    public Author createAuthor(String name, Integer age){
         return authorService.create(name, age);
     }
 }

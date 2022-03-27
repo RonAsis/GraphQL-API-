@@ -12,15 +12,15 @@ public class TutorialMutation implements GraphQLMutationResolver {
 
     private final TutorialService tutorialService;
 
-    public TutorialDto create(String title, String description, String authorId){
+    public TutorialDto createTutorial(String title, String description, String authorId){
         return tutorialService.create(title, description, authorId);
     }
 
-    public boolean delete(String id){
+    public boolean deleteTutorial(String id){
         return tutorialService.delete(id);
     }
 
-    public TutorialDto update(String id, String title, String description) throws RuntimeException{
+    public TutorialDto updateTutorial(String id, String title, String description) throws RuntimeException{
         return tutorialService.update(id, title, description);
     }
 }

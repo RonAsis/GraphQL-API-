@@ -17,11 +17,11 @@ public class AuthorQuery implements GraphQLQueryResolver {
 
     private final AuthorService authorService;
 
-    public List<Author> findAllTutorials() {
+    public List<Author> findAllAuthors() {
         return authorService.findAll();
     }
 
-    public long countTutorials() {
+    public long countAuthors() {
         return authorService.count();
     }
 }
