@@ -40,11 +40,15 @@ dependencies {
 	implementation "org.apache.commons:commons-lang3:3.8.1"
 	implementation "org.apache.commons:commons-collections4:4.4"
 
-	//graphql
+	//graphql start
+
 	implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
+
 	implementation 'com.graphql-java:graphql-java-tools:5.2.4'
+	// this is optional - ui dependency
 	implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
-	compileOnly 'io.github.graphql-java:graphql-java-annotations:7.2.1'
+
+//	compileOnly 'io.github.graphql-java:graphql-java-annotations:7.2.1'
 }
 
 tasks.named('test') {

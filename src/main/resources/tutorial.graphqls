@@ -8,7 +8,7 @@ type TutorialDto {
 
 extend type Query {
 	findAllTutorials: [TutorialDto]!
-	countTutorials: Long!
+	countTutorials: Int!
 }
 
 extend type Mutation {

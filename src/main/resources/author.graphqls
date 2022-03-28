@@ -7,7 +7,7 @@ type Author {
 # Root
 type Query {
 	findAllAuthors: [Author]!
-	countAuthors: Long!
+	countAuthors: Int!
 }
 
 # Root
