@@ -4,6 +4,7 @@ type TutorialDto {
 	description: String
 	authorId: String
 	author: Author
+	getAuthorBiggerThan(age: Int) : Author
 }
 
 extend type Query {

@@ -1,0 +1,65 @@
+mutation {
+  createAuthor(
+    name: "bezkoder",
+    age: 27) {
+      id name
+  }
+}
+
+mutation {
+  createTutorial (
+    title: "Tutorial #1",
+    description: "Tut#1 Description"
+    author: "5dd7644e572b4b0f3fc558c5")
+    {
+      id title author { name }
+    }
+}
+
+{
+  findAllAuthors{
+    id
+    name
+    age
+  }
+}
+
+{
+  findAllTutorials{
+    id
+    title
+    description
+    author{
+      id
+      name
+    }
+  }
+}
+
+mutation {
+  updateTutorial (
+    id: "5dd764dd572b4b0f3fc558c8"
+    description: "Tut#2 updated Desc")
+    {
+      id title description author { name }
+    }
+}
+
+mutation {
+  deleteTutorial(id: "5dd764a0572b4b0f3fc558c7")
+}
+
+{
+  countTutorials
+}
+
+query{
+  findAllTutorials{
+    id
+    title
+   	getAuthorBiggerThan(age: 5) {
+   	  id
+      age
+   	}
+  }
+}

@@ -16,4 +16,8 @@ public class TutorialResolver implements GraphQLResolver<TutorialDto> {
     public Author getAuthor(TutorialDto tutorial) {
         return authorService.findById(tutorial.getAuthorId()).orElse(null);
     }
+
+    public Author getAuthorBiggerThan(TutorialDto tutorial, Integer age) {
+        return authorService.findByIdAgeBiggerFrom(tutorial.getAuthorId(), age).orElse(null);
+    }
 }

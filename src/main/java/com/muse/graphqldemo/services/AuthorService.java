@@ -50,4 +50,8 @@ public class AuthorService {
     public Optional<Author> findById(String authorId) {
         return authorRepository.findById(authorId);
     }
+
+    public Optional<Author> findByIdAgeBiggerFrom(String authorId, Integer age) {
+        return authorRepository.findByIdAndAgeAfter(authorId, age);
+    }
 }
