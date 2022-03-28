@@ -20,10 +20,10 @@ public class SwaggerConfig {
     @Value("${spring.application.name}")
     private String appName;
 
-    final static private String[][] GROUP_VS_BASE_NAME = {
-            {"All-API", "NA"},
-            {"MS-API", SwaggerConfig.class.getPackage().getName()}
-    };
+//    final static private String[][] GROUP_VS_BASE_NAME = {
+//            {"All-API", "NA"},
+//            {"MS-API", SwaggerConfig.class.getPackage().getName()}
+//    };
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
